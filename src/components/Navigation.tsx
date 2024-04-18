@@ -18,7 +18,9 @@ export default function Navigation({  }: NavigationProps){
             <Navbar.Brand as={ Link } to='/'>Quiz Master</Navbar.Brand>
                 <Navbar.Toggle aria-controls='nav-collapse' />
                 <Navbar.Collapse id='nav-collapse'>
-                    <Nav.Link as={ Link } to='/signup'>Sign Up</Nav.Link>
+                    <Nav>
+                        <Nav.Link as={ Link } to='/signup'>Sign Up</Nav.Link>
+                    </Nav>
                     {/* <Nav className='me-auto'>
                         {isLoggedIn ? (
                             <>
@@ -32,11 +34,8 @@ export default function Navigation({  }: NavigationProps){
                             </>
                         )}
                     </Nav> */}
-                    <Nav>
-                       
-                    </Nav>
-                </Navbar.Collapse>
 
+                </Navbar.Collapse>
             </Container>
         </Navbar>
     )

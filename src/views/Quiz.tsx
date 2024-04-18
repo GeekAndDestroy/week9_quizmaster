@@ -25,7 +25,7 @@ export default function Quiz({ }: QuizProps) {
 
     return (
         <>
-            {questions.map((p) => (<QuizCard key={p.id} question={p} />))}
+            {questions?.map((q) => (<QuizCard key={q.id} question={q} />))}
         </>
     )
 }
