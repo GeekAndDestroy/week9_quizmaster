@@ -12,10 +12,9 @@ type Props = {}
 export default function SignUp({}: Props) {
     const [userFormData, setUserFormData] = useState<UserFormDataType>(
         {
-            firstName: '',
-            lastName: '',
+            first_name: '',
+            last_name: '',
             email: '',
-            username: '',
             password: '',
             confirmPassword: ''
         }
@@ -37,7 +36,7 @@ export default function SignUp({}: Props) {
             console.error(response.error);
         } else {
             let newUser = response.data!
-            console.log(`Congrats ${newUser.firstName} ${newUser.lastName} has been created with the username ${newUser.username}`)
+            console.log(`Congrats ${newUser.first_name} ${newUser.last_name} has been created with the email ${newUser.email}`)
         }
         
     }
@@ -51,17 +50,14 @@ export default function SignUp({}: Props) {
             <Card>
                 <Card.Body>
                     <Form onSubmit={handleFormSubmit}>
-                        <Form.Label htmlFor='firstName'>First Name</Form.Label>
-                        <Form.Control id='firstName' name='firstName' placeholder='Enter First Name' value={userFormData.firstName} onChange={handleInputChange}/>
+                        <Form.Label htmlFor='first_name'>First Name</Form.Label>
+                        <Form.Control id='first_name' name='first_name' placeholder='Enter First Name' value={userFormData.first_name} onChange={handleInputChange}/>
 
-                        <Form.Label htmlFor='lastName'>Last Name</Form.Label>
-                        <Form.Control id='lastName' name='lastName' placeholder='Enter Last Name' value={userFormData.lastName} onChange={handleInputChange}/>
+                        <Form.Label htmlFor='last_name'>Last Name</Form.Label>
+                        <Form.Control id='last_name' name='last_name' placeholder='Enter Last Name' value={userFormData.last_name} onChange={handleInputChange}/>
 
                         <Form.Label htmlFor='email'>Email</Form.Label>
                         <Form.Control id='email' name='email' type='email' placeholder='Enter Email' value={userFormData.email} onChange={handleInputChange}/>
-
-                        <Form.Label htmlFor='username'>Username</Form.Label>
-                        <Form.Control id='username' name='username' placeholder='Enter Username' value={userFormData.username} onChange={handleInputChange}/>
 
                         <Form.Label htmlFor='password'>Password</Form.Label>
                         <InputGroup>

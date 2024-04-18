@@ -1,25 +1,20 @@
-import { useState } from 'react';
+// import { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Navigation from './components/Navigation';
 import Container from 'react-bootstrap/Container';
-import Home from './views/Home';
+import Quiz from './views/Quiz';
 import SignUp from './views/SignUp';
 
 
 
 export default function App(){
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-
-  const handleClick = () => {
-      setIsLoggedIn(!isLoggedIn);
-  }
 
   return (
     <>
-        <Navigation isLoggedIn={isLoggedIn}/>
+        <Navigation />
         <Container>
             <Routes>
-                <Route path='/' element={<Home isLoggedIn={isLoggedIn} handleClick={handleClick} /> } />
+                <Route path='/' element={<Quiz /> } />
                 <Route path='/signup' element={<SignUp /> } />
             </Routes>
         </Container>

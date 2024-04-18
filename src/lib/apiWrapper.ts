@@ -1,10 +1,10 @@
 import axios from 'axios';
-import { UserFormDataType, UserType, PostType } from '../types';
+import { UserFormDataType, UserType, QuestionType } from '../types';
 
 
-const baseURL:string = 'https://kekambas-flask-blog-api.onrender.com/'
-const userEndpoint:string = '/users'
-const postEndpoint:string = '/posts'
+const baseURL:string = 'https://cae-bookstore.herokuapp.com'
+const userEndpoint:string = '/user'
+const allQuestionsEndpoint:string = '/question/all'
 
 
 
@@ -33,12 +33,12 @@ async function register(newUserData:UserFormDataType): Promise<APIResponse<UserT
     return { data, error }
 }
 
-async function getAllPosts(): Promise<APIResponse<PostType[]>> {
+async function getAllQuestions(): Promise<APIResponse<{'questions':QuestionType[]}>> {
     let data;
     let error;
     try{
-        const response = await apiClientNoAuth().get(postEndpoint);
-        data = response.data
+        const response = await apiClientNoAuth().get(allQuestionsEndpoint);
+        data = response.data['questions']
     } catch(err) {
         if (axios.isAxiosError(err)){
             error = err.message
@@ -52,5 +52,5 @@ async function getAllPosts(): Promise<APIResponse<PostType[]>> {
 
 
 export {
-    register, getAllPosts
+    register, getAllQuestions
 }
