@@ -25,7 +25,7 @@ export default function QuizCard({ question }: QuizCardProps) {
                 <Card.Title>{ question.question }</Card.Title>
                 <Button variant={showAnswer ? "warning" : "success"} className='my-3' onClick={handleClick}>{showAnswer ? "Hide Answer" : "See Answer"}</Button>
                 {showAnswer ? (
-                    <Card.Subtitle>{ question.answer }</Card.Subtitle>
+                    <Card.Footer>{ question.answer }</Card.Footer>
                 ) : (
                     <></>
                 )
