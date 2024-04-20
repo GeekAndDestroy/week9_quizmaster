@@ -6,10 +6,11 @@ import Navbar from 'react-bootstrap/Navbar';
 // import Button from 'react-bootstrap/Button';
 
 type NavigationProps = {
-   
+   isLoggedIn: boolean,
+   logUserOut: () => void
 }
 
-export default function Navigation({  }: NavigationProps){
+export default function Navigation({ isLoggedIn, logUserOut }: NavigationProps){
 
 
     return (
@@ -19,7 +20,18 @@ export default function Navigation({  }: NavigationProps){
                 <Navbar.Toggle aria-controls='nav-collapse' />
                 <Navbar.Collapse id='nav-collapse'>
                     <Nav>
-                        <Nav.Link as={ Link } to='/signup'>Sign Up</Nav.Link>
+                        {isLoggedIn ? (
+                            <>
+                                <Nav.Link as={ Link } to='/myquiz'>My Quiz Questions</Nav.Link>
+                                <Nav.Link as={ Link } to='/profile'>Profile</Nav.Link>
+                                <Nav.Link onClick={() => logUserOut()}>Log Out</Nav.Link>
+                            </>
+                        ) : (
+                            <>
+                            <Nav.Link as={ Link } to='/signup'>Sign Up</Nav.Link>
+                            <Nav.Link as={ Link } to='/login'>Log In</Nav.Link>
+                            </>
+                            )}
                     </Nav>
                     {/* <Nav className='me-auto'>
                         {isLoggedIn ? (
